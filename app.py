@@ -6,6 +6,7 @@ from flask import Flask,request, jsonify,send_from_directory,render_template
 import os
 from flask_cors import CORS, cross_origin
 import random
+import boto3
 app = Flask(__name__,static_folder='build')
 
 cors = CORS(app)
@@ -27,6 +28,7 @@ def serve(path):
     else:
         return send_from_directory(app.static_folder, 'index.html')
 
+@app.route('/api/model1',methods=['GET','POST'])
 @cross_origin()
 def send_model_1_prediction():
   content = request.json
