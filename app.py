@@ -33,14 +33,14 @@ def serve(path):
 def send_model_1_prediction():
   content = request.json
   user_id = float(content['userid'])
-  model_1 = keras.models.load_model('col_model_1.h5')
-  test_movie_list = np.load('test_movies.npy',allow_pickle=True)
+  model_1 = keras.models.load_model('/app/col_model_1.h5')
+  test_movie_list = np.load('/app/test_movies.npy',allow_pickle=True)
   prediction_list = []
   movie_name_list = []
   actual_rating = []
-  idtomov = np.load('idtomov.npy',allow_pickle=True)
+  idtomov = np.load('/app/idtomov.npy',allow_pickle=True)
   idtomov = dict(enumerate(idtomov.flatten(), 1))[1]
-  df_combined = np.load('df_combined.npy',allow_pickle=True)  
+  df_combined = np.load('/app/df_combined.npy',allow_pickle=True)  
   for i in range(200):
     #print(predict_rating(user_id,test_movie_list[i],model_1),file=sys.stderr)
     prediction_list.append(predict_rating(user_id,test_movie_list[i],model_1))
@@ -63,14 +63,14 @@ def send_model_1_prediction():
 def send_model_2_prediction():
   content = request.json
   user_id = float(content['userid'])
-  model_2 = keras.models.load_model('col_model_2.h5')
-  test_movie_list = np.load('test_movies.npy',allow_pickle=True)
+  model_2 = keras.models.load_model('/app/col_model_2.h5')
+  test_movie_list = np.load('/app/test_movies.npy',allow_pickle=True)
   prediction_list = []
   movie_name_list = []
   actual_rating = []
-  idtomov = np.load('idtomov.npy',allow_pickle=True)
+  idtomov = np.load('/app/idtomov.npy',allow_pickle=True)
   idtomov = dict(enumerate(idtomov.flatten(), 1))[1]
-  df_combined = np.load('df_combined.npy',allow_pickle=True)  
+  df_combined = np.load('/app/df_combined.npy',allow_pickle=True)  
   for i in range(200):
     prediction_list.append(predict_rating(user_id,test_movie_list[i],model_2))
     movie_name_list.append(idtomov[test_movie_list[i]])
