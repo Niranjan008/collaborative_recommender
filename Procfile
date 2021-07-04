@@ -1,1 +1,1 @@
-web: gunicorn app:collaborative-recommendation
+web: gunicorn app:app

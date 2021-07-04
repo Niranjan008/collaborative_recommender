@@ -88,4 +88,5 @@ def send_model_2_prediction():
   return jsonify(ret_dict)
 
 if __name__ == '__main__':
-    app.run(use_reloader=True,threaded= True,port=26074)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(threaded= True,port=port)
