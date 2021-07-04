@@ -6,7 +6,7 @@ from flask import Flask,request, jsonify,send_from_directory,render_template
 import os
 from flask_cors import CORS, cross_origin
 import random
-import boto3
+
 app = Flask(__name__,static_folder='build')
 
 cors = CORS(app)
