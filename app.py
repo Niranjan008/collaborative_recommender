@@ -34,7 +34,7 @@ def send_model_1_prediction():
   MYDIR = os.path.dirname(__file__)
   content = request.json
   user_id = float(content['userid'])
-  model_1 = keras.models.load_model(os.path.join(MYDIR, 'col_model_1.h5'))
+  model_1 = keras.models.load_model('/app/col_model_1.h5')
   test_movie_list = np.load(os.path.join(MYDIR, 'test_movies.npy'),allow_pickle=True)
   prediction_list = []
   movie_name_list = []
